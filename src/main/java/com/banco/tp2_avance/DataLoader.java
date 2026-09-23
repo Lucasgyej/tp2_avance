@@ -31,7 +31,7 @@ public class DataLoader implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         if (clienteRepository.count() > 0) {
-            return; // Evita duplicar datos si ya existen
+            return;
         }
 
         // 1. Crear Cliente
@@ -44,7 +44,7 @@ public class DataLoader implements CommandLineRunner {
         );
         clienteRepository.save(cliente);
 
-        // 2. Crear Caja de Ahorro
+
         CajaDeAhorro cajaAhorro = new CajaDeAhorro(
                 "1234567890123456789012",
                 "MATE.TERMO.CASA",
@@ -56,11 +56,11 @@ public class DataLoader implements CommandLineRunner {
         cajaAhorro.getCotitulares().add(cliente);
         cuentaRepository.save(cajaAhorro);
 
-        // Asociar la cuenta al cliente
+
         cliente.getCuentas().add(cajaAhorro);
         clienteRepository.save(cliente);
 
-        // 3. Crear Transacción de prueba
+
         Transaccion transaccion = new Transaccion(
                 LocalDateTime.now(),
                 new BigDecimal("15000.00"),
