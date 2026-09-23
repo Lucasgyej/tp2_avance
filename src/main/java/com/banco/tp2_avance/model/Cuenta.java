@@ -16,7 +16,7 @@ public abstract class Cuenta extends Auditable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id; //UUD para generar un id con 20 caracteres
 
     @Column(nullable = false, unique = true, length = 22)
     private String cbu;

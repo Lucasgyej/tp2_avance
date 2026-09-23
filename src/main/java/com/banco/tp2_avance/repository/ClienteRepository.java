@@ -9,7 +9,6 @@ import java.util.Optional;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
-    // Query methods según la convención de nombres
     Optional<Cliente> findByCuil(String cuil);
 
     Optional<Cliente> findByEmailIgnoreCase(String email);

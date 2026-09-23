@@ -11,7 +11,6 @@ import java.util.Optional;
 @Repository
 public interface CuentaRepository extends JpaRepository<Cuenta, Long> {
 
-    // Query methods para buscar por los identificadores del TP
     Optional<Cuenta> findByCbu(String cbu);
 
     Optional<Cuenta> findByAlias(String alias);
